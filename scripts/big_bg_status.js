@@ -129,6 +129,6 @@ try {
 }
 //parse and render COB/IOB
 display.oled.setCursor(0,32);
-display.oled.writeString(font, 1, IOB: "+iob[0].iob+'U', 1, true);
+display.oled.writeString(font, 1, "IOB: "+iob[0].iob+'U', 1, true);
 display.oled.setCursor(0,40);
-display.oled.writeString(font, 1, "COB: "+cob.mealCOB, 1, true);
+display.oled.writeString(font, 1, "COB: "+cob.mealCOB+'g', 1, true);
