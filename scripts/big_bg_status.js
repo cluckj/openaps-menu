@@ -94,12 +94,12 @@ if (bg[0].delta) {
 display.oled.setCursor(0,0);
 if (delta >= 0) {
     display.oled.writeString(font, 3, ""+convert_bg(bg[0].glucose, profile), 1, true);
-    display.oled.writeString(font, 2, "+"+stripLeadingZero(convert_bg(delta, profile)), 1, true);
-    display.oled.writeString(font, 1, "  "+minutes+"m ago", 1, true);
+    display.oled.writeString(font, 1, "+"+stripLeadingZero(convert_bg(delta, profile)), 1, true);
+    display.oled.writeString(font, 2, "  "+minutes+"m", 1, true);
 } else {
     display.oled.writeString(font, 3, ""+convert_bg(bg[0].glucose, profile), 1, true);
-    display.oled.writeString(font, 2, ""+stripLeadingZero(convert_bg(delta, profile)), 1, true);
-    display.oled.writeString(font, 1, "  "+minutes+"m ago", 1, true);
+    display.oled.writeString(font, 1, ""+stripLeadingZero(convert_bg(delta, profile)), 1, true);
+    display.oled.writeString(font, 2, "  "+minutes+"m", 1, true);
 }
 
 //calculate timeago for last successful loop
