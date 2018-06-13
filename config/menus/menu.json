@@ -144,7 +144,7 @@
         },
         {
             "label": "Shutdown",
-            "command": "echo 'Shutting down\nin one minute\n\nRemember to flip\nthe power switch.'; shutdown -h 1",
+            "command": "shutdown -h now",
             "emit": "showoutput"
         }
     ]
