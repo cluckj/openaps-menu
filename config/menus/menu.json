@@ -144,13 +144,8 @@
         },
         {
             "label": "Shutdown",
-            "command": "shutdown -h now; echo 'Shutting down. Remember to flip the power switch.",
+            "command": "echo 'Shutting down\nin one minute\n\nRemember to flip\nthe power switch.'; shutdown -h 1",
             "emit": "showoutput"
-        },
-        {
-            "label": "Dim display",
-            "command": "node sripts/dim_display.js",
-            "emit": "nothing"
         }
     ]
   }
