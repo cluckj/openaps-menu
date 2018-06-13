@@ -141,12 +141,12 @@
             "label": "Cancel Reboot",
             "command": "shutdown -c; echo Reboot canceled",
             "emit": "showoutput"
-        }
+        },
         {
             "label": "Shutdown",
             "command": "shutdown -h now; echo 'Shutting down. Remember to flip the power switch.",
             "emit": "showoutput"
-        }
+        },
         {
             "label": "Dim display",
             "command": "node sripts/dim_display.js",
