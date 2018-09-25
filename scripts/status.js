@@ -125,6 +125,10 @@ if (status && suggested && pumpbattery) {
         display.oled.writeString(font, 1, "BG data too old", 1, false, 0, false);
         yOffset = 3;
     }
+    else if (notLoopingReason.includes("currenttemp rate")) {
+        display.oled.writeString(font, 1, "Temp. mismatch", 1, false, 0, false);
+        yOffset = 3;
+    }
 //add more on-screen warnings/messages, maybe some special ones for xdrip-js users?
 }
 
