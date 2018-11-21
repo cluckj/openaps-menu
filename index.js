@@ -16,15 +16,27 @@ var i2cBus = i2c.openSync(1);
 
 var openapsDir = "/root/myopenaps"; //if you're using a nonstandard OpenAPS directory, set that here. NOT RECOMMENDED.
 
+try {
+    var preferences = JSON.parse(fs.readFileSync(openapsDir+"/preferences.json"));
+} catch (e) {
+    console.error("Status screen display error: could not parse preferences.json: ", e);
+}
+
 // setup the display
 var displayConfig = require('./config/display.json');
 displayConfig.i2cBus = i2cBus;
 
-try {
-    var display = require('./lib/display/ssd1306')(displayConfig);
-    displayImage('./static/unicorn.png'); //display logo
-} catch (e) {
-    console.warn("Could not setup display:", e);
+// preferences switch for the screen
+if (preferences.disable_screen = true) {
+ console.warn("HAT screen disabled.");
+} else {
+  try {
+      //if the screen is broken, this usually fails
+      var display = require('./lib/display/ssd1306')(displayConfig);
+      displayImage('./static/unicorn.png'); //display logo
+  } catch (e) {
+      console.warn("Could not setup display:", e);
+  }
 }
 
 // setup battery voltage monitor
@@ -47,10 +59,6 @@ socketServer
 })
 .on('displaystatus', function () {
  if (display) {
-  var preferences;
-  fs.readFile(openapsDir+'/preferences.json', function (err, data) {
-    if (err) throw err;
-    preferences = JSON.parse(data);
     if (preferences.status_screen == "bigbgstatus") {
       bigBGStatus(display, openapsDir);
     } else if (preferences.status_screen == "off") {
@@ -58,7 +66,6 @@ socketServer
     } else {
       graphStatus(display, openapsDir); //default to graph status
     }
-  });
  }
 })
 
