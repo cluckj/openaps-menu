@@ -19,6 +19,11 @@ Or you can have it invert the display from 8pm to 8am with:
 
 `"wearOLEDevenly": "nightandday"`
 
+If your screen is partially broken (or you just want to disable it), you can turn it off with the following setting in your `~/myopenaps/preferences.json`:
+
+`"disable_screen": true`
+
+You will need to power down your rig entirely (disconnect USB power, and toggle the HAT switch) for this preference to take effect.
 
 ## Example screen outputs (Note: these are examples. The latest code may yield different menu items and screen displays)
 
