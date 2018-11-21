@@ -27,7 +27,7 @@ var displayConfig = require('./config/display.json');
 displayConfig.i2cBus = i2cBus;
 
 // preferences switch for the screen
-if (preferences.disable_screen = true) {
+if (preferences.disable_screen) {
  console.warn("HAT screen disabled.");
 } else {
   try {
